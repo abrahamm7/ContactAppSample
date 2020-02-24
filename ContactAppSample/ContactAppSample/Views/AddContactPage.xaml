@@ -1,15 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="ContactAppSample.Views.AddContactPage">
+<pages:PopupPage
+    x:Class="ContactAppSample.Views.AddContactPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            Margin="14"
+            Padding="20"
+            BackgroundColor="White"
+            Spacing="10"
+            VerticalOptions="Center">
+            <StackLayout Padding="20" Spacing="10">
+                <Image Source="camera" />
+                <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
+                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
+                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
+                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                <Label Style="{StaticResource LabelStyle}" Text="Celular" />
+                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+            </StackLayout>
+            <StackLayout Padding="50">
+                <Button Style="{StaticResource ButtonStyle}" Text="Agregar" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</pages:PopupPage>

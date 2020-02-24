@@ -16,14 +16,16 @@
             </Grid.RowDefinitions>
 
             <ScrollView Grid.Row="0">
-                <ListView>
+                <ListView ItemsSource="{Binding}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <StackLayout>
-                                        <Label />
-                                    </StackLayout>
+                                    <Frame>
+                                        <StackLayout>
+                                            <Label Text="{Binding}" />
+                                        </StackLayout>
+                                    </Frame>
                                 </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
@@ -37,6 +39,7 @@
                 BackgroundColor="#1976D2"
                 BorderColor="#2b3c3c"
                 BorderRadius="35"
+                Command="{Binding Addbtn}"
                 FontAttributes="Bold"
                 FontSize="20"
                 HeightRequest="70"
