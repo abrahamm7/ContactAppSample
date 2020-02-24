@@ -21,7 +21,9 @@
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <Label />
+                                    <StackLayout>
+                                        <Label />
+                                    </StackLayout>
                                 </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
