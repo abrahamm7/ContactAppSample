@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ContactAppSample.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackLayout>
+        <SearchBar Placeholder="Search Contact" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Label />
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <Button
+                Grid.Row="0"
+                Margin="0,0,20,22"
+                BackgroundColor="#1976D2"
+                BorderColor="#2b3c3c"
+                BorderRadius="35"
+                FontAttributes="Bold"
+                FontSize="20"
+                HeightRequest="70"
+                HorizontalOptions="End"
+                Text="+"
+                TextColor="White"
+                VerticalOptions="End"
+                WidthRequest="69" />
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
