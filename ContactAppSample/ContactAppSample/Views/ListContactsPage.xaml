@@ -5,26 +5,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Contactos"
     mc:Ignorable="d">
 
     <StackLayout>
         <SearchBar Placeholder="Search Contact" />
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <ScrollView Grid.Row="0">
-                <ListView ItemsSource="{Binding}">
+                <ListView HasUnevenRows="True" ItemsSource="{Binding}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <Frame>
-                                        <StackLayout>
-                                            <Label Text="{Binding}" />
-                                        </StackLayout>
+                                    <Frame Style="{StaticResource FrameOut}">
+                                        <Frame Style="{StaticResource FrameIn}">
+                                            <StackLayout>
+                                                <Label Style="{StaticResource Cells}" Text="Holaaaaaaaaaaa" />
+                                            </StackLayout>
+                                        </Frame>
                                     </Frame>
                                 </ViewCell.View>
                             </ViewCell>
@@ -32,7 +34,6 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-
             <Button
                 Grid.Row="0"
                 Margin="0,0,20,22"
@@ -48,7 +49,6 @@
                 TextColor="White"
                 VerticalOptions="End"
                 WidthRequest="69" />
-
         </Grid>
     </StackLayout>
 

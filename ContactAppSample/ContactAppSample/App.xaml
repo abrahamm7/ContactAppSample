@@ -23,6 +23,18 @@
                 <Setter Property="BackgroundColor" Value="#448AFF" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
+            <Style x:Key="FrameIn" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+            <Style x:Key="FrameOut" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style x:Key="Cells" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

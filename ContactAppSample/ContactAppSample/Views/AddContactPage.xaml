@@ -18,16 +18,19 @@
                 <StackLayout Padding="0" Spacing="5">
                     <Image Source="camera" />
                     <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
-                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Nombre}" />
                     <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
-                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Apellido}" />
                     <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
-                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Telefono}" />
                     <Label Style="{StaticResource LabelStyle}" Text="Celular" />
-                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Celular}" />
                 </StackLayout>
                 <StackLayout Padding="50">
-                    <Button Style="{StaticResource ButtonStyle}" Text="Agregar" />
+                    <Button
+                        Command="{Binding AddPeoplebtn}"
+                        Style="{StaticResource ButtonStyle}"
+                        Text="Agregar" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
