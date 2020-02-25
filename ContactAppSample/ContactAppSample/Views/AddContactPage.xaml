@@ -8,26 +8,29 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout
-            Margin="14"
-            Padding="20"
-            BackgroundColor="White"
-            Spacing="10"
-            VerticalOptions="Center">
-            <StackLayout Padding="20" Spacing="10">
-                <Image Source="camera" />
-                <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
-                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
-                <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
-                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
-                <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
-                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
-                <Label Style="{StaticResource LabelStyle}" Text="Celular" />
-                <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+        <ScrollView>
+            <StackLayout
+                Margin="14"
+                Padding="20"
+                BackgroundColor="White"
+                Spacing="10"
+                VerticalOptions="Center">
+                <StackLayout Padding="0" Spacing="5">
+                    <Image Source="camera" />
+                    <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
+                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                    <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
+                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                    <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
+                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                    <Label Style="{StaticResource LabelStyle}" Text="Celular" />
+                    <Entry Placeholder="" Style="{StaticResource EntryStyleAddcontacts}" />
+                </StackLayout>
+                <StackLayout Padding="50">
+                    <Button Style="{StaticResource ButtonStyle}" Text="Agregar" />
+                </StackLayout>
             </StackLayout>
-            <StackLayout Padding="50">
-                <Button Style="{StaticResource ButtonStyle}" Text="Agregar" />
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
+
     </ContentPage.Content>
 </pages:PopupPage>

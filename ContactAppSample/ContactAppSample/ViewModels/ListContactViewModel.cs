@@ -1,4 +1,5 @@
 ﻿using ContactAppSample.Views;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +19,11 @@ namespace ContactAppSample.ViewModels
         {
             Addbtn = new Command(AddPeople);
         }
+
+        [Obsolete]
         private async void AddPeople()
-        {
-            await App.Current.MainPage.Navigation.PushAsync(new AddContactPage());
+        {            
+            await PopupNavigation.PushAsync(new AddContactPage());
         }
     }
 }
