@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
 
             <ScrollView Grid.Row="0">
-                <ListView HasUnevenRows="True" ItemsSource="{Binding}">
+                <ListView HasUnevenRows="True" ItemsSource="{Binding People}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -24,7 +24,8 @@
                                     <Frame Style="{StaticResource FrameOut}">
                                         <Frame Style="{StaticResource FrameIn}">
                                             <StackLayout>
-                                                <Label Style="{StaticResource Cells}" Text="Holaaaaaaaaaaa" />
+                                                <Label Style="{StaticResource Cells}" Text="{Binding Nombre}" />
+                                                <Label Style="{StaticResource CellsDetails}" Text="{Binding Telefono}" />
                                             </StackLayout>
                                         </Frame>
                                     </Frame>

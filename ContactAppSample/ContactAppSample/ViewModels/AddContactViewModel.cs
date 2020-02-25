@@ -1,4 +1,6 @@
-﻿using ContactAppSample.Models;
+﻿using ContactAppSample.Connections;
+using ContactAppSample.Models;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +14,21 @@ namespace ContactAppSample.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public People People { get; set; } = new People();
+        public Items Items { get; set; } = new Items();
+        public List<People> Peoples { get; set; } = new List<People>();
         public ICommand AddPeoplebtn { get; set; }
+
+        //public bool PopUpVisible { get; set; }
+
+
+        public SQLiteConnection conn;
 
         public AddContactViewModel()
         {
             AddPeoplebtn = new Command(AddContact);
+            conn = DependencyService.Get<SqliteInterface>().GetConnection();
+            //PopUpVisible = Items.State = true;
+            //conn.CreateTable<People>();
         }
 
         private async void AddContact()
@@ -27,6 +39,9 @@ namespace ContactAppSample.ViewModels
             }
             else
             {
+                Peoples.Add(People);
+                conn.InsertAll(Peoples);
+                //Items.State = false;
                 
             }
         }
