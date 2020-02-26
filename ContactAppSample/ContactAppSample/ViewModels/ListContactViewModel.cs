@@ -2,6 +2,7 @@
 using ContactAppSample.Models;
 using ContactAppSample.Views;
 using Rg.Plugins.Popup.Services;
+using GalaSoft.MvvmLight.Command;
 using SQLite;
 using System;
 using System.Collections.Generic;
