@@ -1,4 +1,5 @@
 ﻿using ContactAppSample.Models;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,9 +26,10 @@ namespace ContactAppSample.ViewModels
             Savebtn = new Command(Save);
         }
 
-        private void Save()
+        [Obsolete]
+        private async void Save()
         {
-
+            await PopupNavigation.PopAsync();
         }
     }
 }

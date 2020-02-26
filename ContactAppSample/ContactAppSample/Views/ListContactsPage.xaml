@@ -6,6 +6,7 @@
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="PeoplePage"
     Title="Contactos"
     mc:Ignorable="d">
 
@@ -19,7 +20,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <ScrollView Grid.Row="0">
-                <ListView HasUnevenRows="True" ItemsSource="{Binding People}">
+                <ListView
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Peoples}"
+                    SelectedItem="{Binding SelectPeople, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -34,26 +38,26 @@
                                                     Visual="Material"
                                                     WidthRequest="40" />
                                                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
-                                                    <Label Style="{StaticResource Cells}" Text="{Binding Nombre}" />
-                                                    <Label Style="{StaticResource CellsDetails}" Text="{Binding Telefono}" />
+                                                    <Label Style="{StaticResource Cells}" Text="{Binding Nombre, Mode=TwoWay}" />
+                                                    <Label Style="{StaticResource CellsDetails}" Text="{Binding Telefono, Mode=TwoWay}" />
                                                 </StackLayout>
                                             </StackLayout>
                                         </Frame>
                                         <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding TapFrame}" CommandParameter="{x:Reference bigframe}" />
+                                            <TapGestureRecognizer Command="{Binding Tapframe}" CommandParameter="{x:Reference bigframe}" />
                                         </Frame.GestureRecognizers>
                                     </Frame>
                                 </ViewCell.View>
                                 <ViewCell.ContextActions>
                                     <MenuItem
                                         x:Name="Editbtn"
-                                        Command="{Binding EditContact}"
-                                        CommandParameter="{x:Reference Editbtn}"
+                                        Command="{Binding Path=BindingContext.EditContact, Source={x:Reference PeoplePage}}"
+                                        CommandParameter="{Binding .}"
                                         Text="Edit" />
                                     <MenuItem
                                         x:Name="Deletebtn"
-                                        Command="{Binding DeleteContact}"
-                                        CommandParameter="{x:Reference Deletebtn}"
+                                        Command="{Binding Path=BindingContext.DeleteContact, Source={x:Reference PeoplePage}}"
+                                        CommandParameter="{Binding .}"
                                         Text="Delete" />
                                 </ViewCell.ContextActions>
                             </ViewCell>

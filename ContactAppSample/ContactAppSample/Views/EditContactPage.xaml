@@ -17,13 +17,13 @@
                     VerticalOptions="Center">
                     <StackLayout Padding="0" Spacing="5">
                         <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Nombre}" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Nombre, Mode=TwoWay}" />
                         <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Apellido}" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Apellido, Mode=TwoWay}" />
                         <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Telefono}" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Telefono, Mode=TwoWay}" />
                         <Label Style="{StaticResource LabelStyle}" Text="Celular" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Celular}" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Celular, Mode=TwoWay}" />
                     </StackLayout>
                     <StackLayout Padding="50">
                         <Button

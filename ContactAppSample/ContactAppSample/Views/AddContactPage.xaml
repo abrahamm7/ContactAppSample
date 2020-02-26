@@ -10,30 +10,40 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
-                Margin="14"
+                Margin="30"
                 Padding="20"
                 BackgroundColor="White"
-                Spacing="10"
+                Spacing="0"
                 VerticalOptions="Center">
-                <StackLayout Padding="0" Spacing="5">
-                    <Image Source="camera" />
-                    <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
-                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Nombre}" />
-                    <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
-                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Apellido}" />
-                    <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
-                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Telefono}" />
-                    <Label Style="{StaticResource LabelStyle}" Text="Celular" />
-                    <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Celular}" />
+                <StackLayout Padding="10" Spacing="3">
+                    <Label Style="{StaticResource LabelStyle}" Text="Name" />
+                    <Entry
+                        Keyboard="Text"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding People.Nombre, Mode=TwoWay}" />
+                    <Label Style="{StaticResource LabelStyle}" Text="Last Name" />
+                    <Entry
+                        Keyboard="Text"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding People.Apellido, Mode=TwoWay}" />
+                    <Label Style="{StaticResource LabelStyle}" Text="Telephone" />
+                    <Entry
+                        Keyboard="Numeric"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding People.Telefono, Mode=TwoWay}" />
+                    <Label Style="{StaticResource LabelStyle}" Text="Phone" />
+                    <Entry
+                        Keyboard="Numeric"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding People.Celular, Mode=TwoWay}" />
                 </StackLayout>
                 <StackLayout Padding="50">
                     <Button
                         Command="{Binding AddPeoplebtn}"
                         Style="{StaticResource ButtonStyle}"
-                        Text="Agregar" />
+                        Text="Add" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-
     </ContentPage.Content>
 </pages:PopupPage>

@@ -17,14 +17,16 @@ namespace ContactAppSample.ViewModels
     public class ListContactViewModel: INotifyPropertyChanged
     {
         Frame frame = new Frame();
-        ListView list = new ListView();
+        
         public event PropertyChangedEventHandler PropertyChanged;
-        public List<People> People { get; set; } = new List<People>();
+        public List<People> Peoples { get; set; } = new List<People>();
         public ICommand TapFrame { get; set; }
         public ICommand Addbtn { get; set; }
         public ICommand EditContact { get; set; }
-        public ICommand DeleteContact { get; set; }
-
+        public ICommand DeleteContact { get; set; }      
+        public bool State { get; set; }
+        public bool StateList { get; set; }
+        public People SelectPeople { get; set; }
         public SQLiteConnection conn;
 
         
@@ -33,21 +35,32 @@ namespace ContactAppSample.ViewModels
         public ListContactViewModel()
         {
             Addbtn = new Command(AddPeople);
-            TapFrame = new Command(TapGesture);
-            DeleteContact = new Command(Delete);
-            EditContact = new Command(Edit);
+            TapFrame = new Command(TapGesture);        
+            //Delete contact//
+            DeleteContact = new Command<People>((sender) =>
+            {                
+                DisplayMessage(sender);                                    
+                this.Peoples = (from x in conn.Table<People>() select x).ToList();
+            });
+            //Edit contact//
+            EditContact = new Command<People>((sender) =>
+            {                
+                NavigatePage(sender);
+            });
+
             conn = DependencyService.Get<SqliteInterface>().GetConnection();
             conn.CreateTable<People>();
-            var details = (from x in conn.Table<People>() select x).ToList();
-            this.People = details;
+            var details = (from x in conn.Table<People>() select x).ToList();         
+            this.Peoples = details;
         }
 
+        //Navigate to Popup//
         [Obsolete]
         private async void AddPeople()
         {            
             await PopupNavigation.PushAsync(new AddContactPage());
         }
-
+        //Tap frame//
         private void TapGesture(object sender)
         {
             frame.BackgroundColor = Color.White;
@@ -55,22 +68,25 @@ namespace ContactAppSample.ViewModels
             element.BackgroundColor = Color.LightPink;
             frame = element;
         }
-
-        private async void Edit(object sender)
+        //Display actionsheet//
+        async void DisplayMessage(People people) 
         {
-            var onSelect = list.SelectedItem as People;
-            await App.Current.MainPage.Navigation.PushAsync(new EditContactPage(onSelect));
+            var action = await App.Current.MainPage.DisplayActionSheet("Message", "Yes", "Cancel", $"Do you want delete {people.Nombre} ?");
+            switch (action)
+            {
+                case "Yes":
+                    conn.Query<People>($"Delete From People where IdPeople = {people.IdPeople}");
+                    var details = (from x in conn.Table<People>() select x).ToList();
+                    this.Peoples = details;
+                    break;
+            }
+            
         }
-
-        private async void Delete(object sender)
+        //Navigate to edit contact page//
+        async void NavigatePage(People people)
         {
-            var onSelect = list.SelectedItem as People;
-            await App.Current.MainPage.DisplayAlert("Mensaje", $"Desea eliminar a {onSelect.Nombre} ?", "ok");
-            conn.Query<People>($"Delete From People where IdPeople = {onSelect.IdPeople}");
-            var details = (from x in conn.Table<People>() select x).ToList();
-            this.People = details;
+            await App.Current.MainPage.Navigation.PushAsync(new EditContactPage(people));
         }
-
          
     }
 }
