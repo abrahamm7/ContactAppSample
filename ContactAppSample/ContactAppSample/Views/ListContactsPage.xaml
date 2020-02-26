@@ -6,7 +6,6 @@
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-   
     Title="Contactos"
     mc:Ignorable="d">
 
@@ -46,6 +45,18 @@
                                         </Frame.GestureRecognizers>
                                     </Frame>
                                 </ViewCell.View>
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                        x:Name="Editbtn"
+                                        Command="{Binding EditContact}"
+                                        CommandParameter="{x:Reference Editbtn}"
+                                        Text="Edit" />
+                                    <MenuItem
+                                        x:Name="Deletebtn"
+                                        Command="{Binding DeleteContact}"
+                                        CommandParameter="{x:Reference Deletebtn}"
+                                        Text="Delete" />
+                                </ViewCell.ContextActions>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

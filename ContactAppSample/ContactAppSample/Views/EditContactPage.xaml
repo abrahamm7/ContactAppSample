@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ContactAppSample.Views.EditContactPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout
+                    Margin="14"
+                    Padding="20"
+                    BackgroundColor="White"
+                    Spacing="10"
+                    VerticalOptions="Center">
+                    <StackLayout Padding="0" Spacing="5">
+                        <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Nombre}" />
+                        <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Apellido}" />
+                        <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Telefono}" />
+                        <Label Style="{StaticResource LabelStyle}" Text="Celular" />
+                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Celular}" />
+                    </StackLayout>
+                    <StackLayout Padding="50">
+                        <Button
+                            Command="{Binding Savebtn}"
+                            Style="{StaticResource ButtonStyle}"
+                            Text="Save" />
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
