@@ -67,6 +67,10 @@ namespace ContactAppSample.ViewModels
             var onSelect = list.SelectedItem as People;
             await App.Current.MainPage.DisplayAlert("Mensaje", $"Desea eliminar a {onSelect.Nombre} ?", "ok");
             conn.Query<People>($"Delete From People where IdPeople = {onSelect.IdPeople}");
+            var details = (from x in conn.Table<People>() select x).ToList();
+            this.People = details;
         }
+
+         
     }
 }

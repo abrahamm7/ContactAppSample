@@ -18,6 +18,7 @@ namespace ContactAppSample.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             ImageCircleRenderer.Init();
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#FF5252"));
             base.OnCreate(savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

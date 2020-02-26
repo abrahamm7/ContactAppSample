@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <StackLayout>
-        <SearchBar Placeholder="Search Contact" />
+        <SearchBar Placeholder="Search Contact" SearchCommand="{Binding Search}" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -18,7 +18,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
             <ScrollView Grid.Row="0">
                 <ListView HasUnevenRows="True" ItemsSource="{Binding People}">
                     <ListView.ItemTemplate>
@@ -65,16 +64,12 @@
             <Button
                 Grid.Row="0"
                 Margin="0,0,20,22"
-                BackgroundColor="#1976D2"
-                BorderColor="#2b3c3c"
                 BorderRadius="35"
                 Command="{Binding Addbtn}"
-                FontAttributes="Bold"
-                FontSize="20"
                 HeightRequest="70"
                 HorizontalOptions="End"
+                Style="{StaticResource CircleButton}"
                 Text="+"
-                TextColor="White"
                 VerticalOptions="End"
                 WidthRequest="69" />
         </Grid>
