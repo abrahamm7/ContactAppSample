@@ -18,11 +18,13 @@ namespace ContactAppSample.ViewModels
         public People People { get; set; } = new People();       
         public List<People> Peoples { get; set; } = new List<People>();
         public ICommand AddPeoplebtn { get; set; }
+        public ICommand Cancel { get; set; }
         public SQLiteConnection conn;
 
         public AddContactViewModel()
         {
             AddPeoplebtn = new Command(AddContact);
+            Cancel = new Command(Exit);
             conn = DependencyService.Get<SqliteInterface>().GetConnection();
         }
 
@@ -42,6 +44,11 @@ namespace ContactAppSample.ViewModels
                 this.Peoples = details;
             }
         }
-        
+
+        [Obsolete]
+        private async void Exit()
+        {
+            await PopupNavigation.PopAsync();
+        }
     }
 }

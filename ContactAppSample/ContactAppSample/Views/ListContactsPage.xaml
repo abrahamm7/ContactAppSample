@@ -7,7 +7,7 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="PeoplePage"
-    Title="Contactos"
+    Title="Contacts"
     mc:Ignorable="d">
 
     <StackLayout>
@@ -39,7 +39,10 @@
                                                     WidthRequest="40" />
                                                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
                                                     <Label Style="{StaticResource Cells}" Text="{Binding Nombre, Mode=TwoWay}" />
-                                                    <Label Style="{StaticResource CellsDetails}" Text="{Binding Telefono, Mode=TwoWay}" />
+                                                    <Label
+                                                        Style="{StaticResource CellsDetails}"
+                                                        Text="{Binding Telefono, Mode=TwoWay}"
+                                                        TextColor="Accent" />
                                                 </StackLayout>
                                             </StackLayout>
                                         </Frame>

@@ -15,33 +15,53 @@
                 BackgroundColor="White"
                 Spacing="0"
                 VerticalOptions="Center">
-                <StackLayout Padding="10" Spacing="3">
-                    <Label Style="{StaticResource LabelStyle}" Text="Name" />
+                <Label
+                    FontSize="19"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Add your contact"
+                    TextColor="Accent" />
+                <StackLayout Padding="10" Spacing="19">
+
                     <Entry
+                        HorizontalTextAlignment="Center"
                         Keyboard="Text"
+                        Placeholder="Name"
+                        PlaceholderColor="Accent"
                         Style="{StaticResource EntryStyleAddcontacts}"
                         Text="{Binding People.Nombre, Mode=TwoWay}" />
-                    <Label Style="{StaticResource LabelStyle}" Text="Last Name" />
                     <Entry
+                        HorizontalTextAlignment="Center"
                         Keyboard="Text"
+                        Placeholder="Last Name"
+                        PlaceholderColor="Accent"
                         Style="{StaticResource EntryStyleAddcontacts}"
                         Text="{Binding People.Apellido, Mode=TwoWay}" />
-                    <Label Style="{StaticResource LabelStyle}" Text="Telephone" />
+
                     <Entry
+                        HorizontalTextAlignment="Center"
                         Keyboard="Numeric"
+                        Placeholder="Telephone"
+                        PlaceholderColor="Accent"
                         Style="{StaticResource EntryStyleAddcontacts}"
                         Text="{Binding People.Telefono, Mode=TwoWay}" />
-                    <Label Style="{StaticResource LabelStyle}" Text="Phone" />
+
                     <Entry
+                        HorizontalTextAlignment="Center"
                         Keyboard="Numeric"
+                        Placeholder="Phone"
+                        PlaceholderColor="Accent"
                         Style="{StaticResource EntryStyleAddcontacts}"
                         Text="{Binding People.Celular, Mode=TwoWay}" />
                 </StackLayout>
                 <StackLayout Padding="50">
                     <Button
                         Command="{Binding AddPeoplebtn}"
-                        Style="{StaticResource ButtonStyle}"
+                        Style="{StaticResource CancelButton}"
                         Text="Add" />
+                    <Button
+                        Command="{Binding Cancel}"
+                        Style="{StaticResource CancelButton}"
+                        Text="Cancel" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

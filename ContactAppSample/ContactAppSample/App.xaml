@@ -49,6 +49,13 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
+            <Style x:Key="CancelButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="Accent" />
+                <Setter Property="BorderColor" Value="#FF9800" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="25" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

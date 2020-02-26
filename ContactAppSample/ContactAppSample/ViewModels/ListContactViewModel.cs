@@ -24,12 +24,10 @@ namespace ContactAppSample.ViewModels
         public ICommand Addbtn { get; set; }
         public ICommand EditContact { get; set; }
         public ICommand DeleteContact { get; set; }      
-        public bool State { get; set; }
+        public bool State { get; set; } 
         public bool StateList { get; set; }
         public People SelectPeople { get; set; }
         public SQLiteConnection conn;
-
-        
 
         [Obsolete]
         public ListContactViewModel()
@@ -47,7 +45,6 @@ namespace ContactAppSample.ViewModels
             {                
                 NavigatePage(sender);
             });
-
             conn = DependencyService.Get<SqliteInterface>().GetConnection();
             conn.CreateTable<People>();
             var details = (from x in conn.Table<People>() select x).ToList();         

@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Edit contact"
     mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout>
@@ -16,19 +17,35 @@
                     Spacing="10"
                     VerticalOptions="Center">
                     <StackLayout Padding="0" Spacing="5">
-                        <Label Style="{StaticResource LabelStyle}" Text="Nombre" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Nombre, Mode=TwoWay}" />
-                        <Label Style="{StaticResource LabelStyle}" Text="Apellido" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Apellido, Mode=TwoWay}" />
-                        <Label Style="{StaticResource LabelStyle}" Text="Telefono" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Telefono, Mode=TwoWay}" />
-                        <Label Style="{StaticResource LabelStyle}" Text="Celular" />
-                        <Entry Style="{StaticResource EntryStyleAddcontacts}" Text="{Binding People.Celular, Mode=TwoWay}" />
+
+                        <Entry
+                            Placeholder="Name"
+                            PlaceholderColor="Accent"
+                            Style="{StaticResource EntryStyleAddcontacts}"
+                            Text="{Binding People.Nombre, Mode=TwoWay}" />
+
+                        <Entry
+                            Placeholder="Last Name"
+                            PlaceholderColor="Accent"
+                            Style="{StaticResource EntryStyleAddcontacts}"
+                            Text="{Binding People.Apellido, Mode=TwoWay}" />
+
+                        <Entry
+                            Placeholder="Telephone"
+                            PlaceholderColor="Accent"
+                            Style="{StaticResource EntryStyleAddcontacts}"
+                            Text="{Binding People.Telefono, Mode=TwoWay}" />
+
+                        <Entry
+                            Placeholder="Phone"
+                            PlaceholderColor="Accent"
+                            Style="{StaticResource EntryStyleAddcontacts}"
+                            Text="{Binding People.Celular, Mode=TwoWay}" />
                     </StackLayout>
                     <StackLayout Padding="50">
                         <Button
                             Command="{Binding Savebtn}"
-                            Style="{StaticResource ButtonStyle}"
+                            Style="{StaticResource CancelButton}"
                             Text="Save" />
                     </StackLayout>
                 </StackLayout>
