@@ -118,7 +118,7 @@ namespace ContactAppSample.ViewModels
                     break;
 
                 case "Send message via Whatsapp":
-                    string message = await App.Current.MainPage.DisplayPromptAsync("Message", "Type your message here");
+                    string message = await App.Current.MainPage.DisplayPromptAsync("Message", "Type your message here", placeholder: $"Hi, {People.Nombre}");
                     if (message != null)
                     {
                         Chat.Open(People.Telefono, message);
