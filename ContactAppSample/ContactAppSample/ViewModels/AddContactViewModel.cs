@@ -38,8 +38,8 @@ namespace ContactAppSample.ViewModels
             else
             {
                 Peoples.Add(People);
-                conn.InsertAll(Peoples);               
-                await PopupNavigation.PopAsync();
+                conn.InsertAll(Peoples);
+                await App.Current.MainPage.Navigation.PopAsync();
                 var details = (from x in conn.Table<People>() select x).ToList();
                 this.Peoples = details;
             }
@@ -48,7 +48,7 @@ namespace ContactAppSample.ViewModels
         [Obsolete]
         private async void Exit()
         {
-            await PopupNavigation.PopAsync();
+            await App.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

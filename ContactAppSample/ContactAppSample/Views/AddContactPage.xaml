@@ -1,58 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<pages:PopupPage
+<ContentPage
     x:Class="ContactAppSample.Views.AddContactPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    Title="Add contact"
     mc:Ignorable="d">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
-                Margin="30"
                 Padding="20"
                 BackgroundColor="White"
-                Spacing="0"
-                VerticalOptions="Center">
-                <Label
-                    FontSize="19"
-                    HorizontalOptions="CenterAndExpand"
-                    Text="Add your contact"
-                    TextColor="Accent" />
-                <StackLayout Padding="10" Spacing="19">
+                Spacing="30">
 
-                    <Entry
-                        HorizontalTextAlignment="Center"
-                        Keyboard="Text"
-                        Placeholder="Name"
-                        PlaceholderColor="Accent"
-                        Style="{StaticResource EntryStyleAddcontacts}"
-                        Text="{Binding People.Nombre, Mode=TwoWay}" />
-                    <Entry
-                        HorizontalTextAlignment="Center"
-                        Keyboard="Text"
-                        Placeholder="Last Name"
-                        PlaceholderColor="Accent"
-                        Style="{StaticResource EntryStyleAddcontacts}"
-                        Text="{Binding People.Apellido, Mode=TwoWay}" />
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Text"
+                    Placeholder="Name"
+                    Style="{StaticResource EntryStyleAddcontacts}"
+                    Text="{Binding People.Nombre, Mode=TwoWay}" />
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Text"
+                    Placeholder="Last Name"
+                    Style="{StaticResource EntryStyleAddcontacts}"
+                    Text="{Binding People.Apellido, Mode=TwoWay}" />
 
-                    <Entry
-                        HorizontalTextAlignment="Center"
-                        Keyboard="Numeric"
-                        Placeholder="Telephone"
-                        PlaceholderColor="Accent"
-                        Style="{StaticResource EntryStyleAddcontacts}"
-                        Text="{Binding People.Telefono, Mode=TwoWay}" />
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Numeric"
+                    Placeholder="Telephone"
+                    Style="{StaticResource EntryStyleAddcontacts}"
+                    Text="{Binding People.Telefono, Mode=TwoWay}" />
 
-                    <Entry
-                        HorizontalTextAlignment="Center"
-                        Keyboard="Numeric"
-                        Placeholder="Phone"
-                        PlaceholderColor="Accent"
-                        Style="{StaticResource EntryStyleAddcontacts}"
-                        Text="{Binding People.Celular, Mode=TwoWay}" />
-                </StackLayout>
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Numeric"
+                    Placeholder="Phone"
+                    Style="{StaticResource EntryStyleAddcontacts}"
+                    Text="{Binding People.Celular, Mode=TwoWay}" />
                 <StackLayout Padding="50">
                     <Button
                         Command="{Binding AddPeoplebtn}"
@@ -66,4 +54,4 @@
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
-</pages:PopupPage>
+</ContentPage>

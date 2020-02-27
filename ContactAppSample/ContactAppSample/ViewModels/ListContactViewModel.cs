@@ -34,7 +34,7 @@ namespace ContactAppSample.ViewModels
         [Obsolete]
         public ListContactViewModel()
         {
-            
+            //Refresh ListView//
             Refresh = new Command(() => {
                 
                 this.Peoples = conn.Query<People>("Select * from People");
@@ -75,7 +75,7 @@ namespace ContactAppSample.ViewModels
         [Obsolete]
         private async void AddPeople()
         {            
-            await PopupNavigation.PushAsync(new AddContactPage());
+            await App.Current.MainPage.Navigation.PushAsync(new AddContactPage());
         }
         //Display actionsheet//
         async void DisplayMessage(People people) 

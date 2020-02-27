@@ -10,38 +10,33 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout
-                    Margin="14"
-                    Padding="20"
-                    BackgroundColor="White"
-                    Spacing="10"
-                    VerticalOptions="Center">
-                    <StackLayout Padding="0" Spacing="5">
+                <StackLayout Padding="20" Spacing="30">
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Keyboard="Text"
+                        Placeholder="Name"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding name, Mode=TwoWay}" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Keyboard="Text"
+                        Placeholder="Last Name"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding lastname, Mode=TwoWay}" />
 
-                        <Entry
-                            Placeholder="Name"
-                            PlaceholderColor="Accent"
-                            Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding name, Mode=TwoWay}" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Keyboard="Numeric"
+                        Placeholder="Telephone"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding tel, Mode=TwoWay}" />
 
-                        <Entry
-                            Placeholder="Last Name"
-                            PlaceholderColor="Accent"
-                            Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding lastname, Mode=TwoWay}" />
-
-                        <Entry
-                            Placeholder="Telephone"
-                            PlaceholderColor="Accent"
-                            Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding tel, Mode=TwoWay}" />
-
-                        <Entry
-                            Placeholder="Phone"
-                            PlaceholderColor="Accent"
-                            Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding phone, Mode=TwoWay}" />
-                    </StackLayout>
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Keyboard="Numeric"
+                        Placeholder="Phone"
+                        Style="{StaticResource EntryStyleAddcontacts}"
+                        Text="{Binding phone, Mode=TwoWay}" />
                     <StackLayout Padding="50">
                         <Button
                             Command="{Binding Savebtn}"

@@ -40,6 +40,7 @@ namespace ContactAppSample.ViewModels
             conn = DependencyService.Get<SqliteInterface>().GetConnection();
             conn.Query<People>($"Update People set Nombre = '{name}', Apellido = '{lastname}', Telefono = '{tel}', Celular = '{phone}' where IdPeople = '{People.IdPeople}'");                     
             await App.Current.MainPage.DisplayAlert("Done", "The contact has saved!", "Ok");
+            await App.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

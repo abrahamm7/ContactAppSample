@@ -26,6 +26,7 @@
                     IsRefreshing="{Binding State, Mode=OneWay}"
                     ItemsSource="{Binding Peoples}"
                     RefreshCommand="{Binding Refresh}"
+                    RefreshControlColor="Accent"
                     SelectedItem="{Binding SelectPeople, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>

@@ -12,7 +12,7 @@ using Xamarin.Forms.Xaml;
 namespace ContactAppSample.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddContactPage : PopupPage
+    public partial class AddContactPage : ContentPage
     {
         public AddContactPage()
         {
