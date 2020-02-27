@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using Xamarin.Forms.OpenWhatsApp;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Plugin.Messaging;
@@ -107,13 +108,21 @@ namespace ContactAppSample.ViewModels
         private async void Tap(object sender)
         {
             People = sender as People;
-            var action = await App.Current.MainPage.DisplayActionSheet("Message", "Yes", "Cancel", $"Do you want call {People.Nombre} ?");
+            var action = await App.Current.MainPage.DisplayActionSheet("Message", "Yes", "Cancel", $"Do you want call {People.Nombre} ?", "Send message via Whatsapp");
             switch (action)
             {
                 case "Yes":
                     var phoneDialer = CrossMessaging.Current.PhoneDialer;
                     if (phoneDialer.CanMakePhoneCall)
-                        phoneDialer.MakePhoneCall(People.Telefono);
+                        phoneDialer.MakePhoneCall(People.Telefono);                 
+                    break;
+
+                case "Send message via Whatsapp":
+                    string message = await App.Current.MainPage.DisplayPromptAsync("Message", "Type your message here");
+                    if (message != null)
+                    {
+                        Chat.Open(People.Telefono, message);
+                    }                    
                     break;
             }
         }
