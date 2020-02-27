@@ -108,10 +108,10 @@ namespace ContactAppSample.ViewModels
         private async void Tap(object sender)
         {
             People = sender as People;
-            var action = await App.Current.MainPage.DisplayActionSheet("Message", "Yes", "Cancel", $"Do you want call {People.Nombre} ?", "Send message via Whatsapp");
+            var action = await App.Current.MainPage.DisplayActionSheet($"{People.Nombre}", "Cancel", "Call", "Send message via Whatsapp");
             switch (action)
             {
-                case "Yes":
+                case "Call":
                     var phoneDialer = CrossMessaging.Current.PhoneDialer;
                     if (phoneDialer.CanMakePhoneCall)
                         phoneDialer.MakePhoneCall(People.Telefono);                 
