@@ -1,5 +1,7 @@
-﻿using ContactAppSample.Models;
+﻿using ContactAppSample.Connections;
+using ContactAppSample.Models;
 using Rg.Plugins.Popup.Services;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,21 +17,29 @@ namespace ContactAppSample.ViewModels
 
         People People { get; set; } = new People();
 
+        public string name { get; set; }
+        public string lastname { get; set; }
+        public string tel { get; set; }
+        public string phone { get; set; }
         public ICommand Savebtn { get; set; }
 
+        public SQLiteConnection conn;
         public EditContactViewModel(People people)
         {
-            People.Nombre = people.Nombre;
-            People.Apellido = people.Apellido;
-            People.Telefono = people.Telefono;
-            People.Celular = people.Celular;
+            this.People = people;
+            name = people.Nombre;
+            lastname = people.Apellido;
+            tel = people.Telefono;
+            phone = people.Celular;            
             Savebtn = new Command(Save);
         }
 
         [Obsolete]
         private async void Save()
         {
-            await PopupNavigation.PopAsync();
+            conn = DependencyService.Get<SqliteInterface>().GetConnection();
+            conn.Query<People>($"Update People set Nombre = '{name}', Apellido = '{lastname}', Telefono = '{tel}', Celular = '{phone}' where IdPeople = '{People.IdPeople}'");                     
+            await App.Current.MainPage.DisplayAlert("Done", "The contact has saved!", "Ok");
         }
     }
 }

@@ -22,25 +22,25 @@
                             Placeholder="Name"
                             PlaceholderColor="Accent"
                             Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding People.Nombre, Mode=TwoWay}" />
+                            Text="{Binding name, Mode=TwoWay}" />
 
                         <Entry
                             Placeholder="Last Name"
                             PlaceholderColor="Accent"
                             Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding People.Apellido, Mode=TwoWay}" />
+                            Text="{Binding lastname, Mode=TwoWay}" />
 
                         <Entry
                             Placeholder="Telephone"
                             PlaceholderColor="Accent"
                             Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding People.Telefono, Mode=TwoWay}" />
+                            Text="{Binding tel, Mode=TwoWay}" />
 
                         <Entry
                             Placeholder="Phone"
                             PlaceholderColor="Accent"
                             Style="{StaticResource EntryStyleAddcontacts}"
-                            Text="{Binding People.Celular, Mode=TwoWay}" />
+                            Text="{Binding phone, Mode=TwoWay}" />
                     </StackLayout>
                     <StackLayout Padding="50">
                         <Button

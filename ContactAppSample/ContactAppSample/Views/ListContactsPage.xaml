@@ -22,7 +22,10 @@
             <ScrollView Grid.Row="0">
                 <ListView
                     HasUnevenRows="True"
+                    IsPullToRefreshEnabled="True"
+                    IsRefreshing="{Binding State, Mode=OneWay}"
                     ItemsSource="{Binding Peoples}"
+                    RefreshCommand="{Binding Refresh}"
                     SelectedItem="{Binding SelectPeople, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -47,7 +50,7 @@
                                             </StackLayout>
                                         </Frame>
                                         <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Tapframe}" CommandParameter="{x:Reference bigframe}" />
+                                            <TapGestureRecognizer Command="{Binding TapFrame}" CommandParameter="{x:Reference bigframe}" />
                                         </Frame.GestureRecognizers>
                                     </Frame>
                                 </ViewCell.View>

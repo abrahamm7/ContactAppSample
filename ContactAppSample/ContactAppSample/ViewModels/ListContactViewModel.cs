@@ -23,17 +23,34 @@ namespace ContactAppSample.ViewModels
         public ICommand TapFrame { get; set; }
         public ICommand Addbtn { get; set; }
         public ICommand EditContact { get; set; }
-        public ICommand DeleteContact { get; set; }      
+        public ICommand DeleteContact { get; set; }            
+        public ICommand Refresh { get; set; }
         public bool State { get; set; } 
         public bool StateList { get; set; }
         public People SelectPeople { get; set; }
+
         public SQLiteConnection conn;
 
         [Obsolete]
         public ListContactViewModel()
         {
+            
+            Refresh = new Command(() => {
+                
+                this.Peoples = conn.Query<People>("Select * from People");
+                State = true;
+                State = false;
+            });
+            
             Addbtn = new Command(AddPeople);
-            TapFrame = new Command(TapGesture);        
+            //TapFrame = new Command(TapGesture);
+            TapFrame = new Command<Frame>((sender) =>
+            {
+                sender.BackgroundColor = Color.White;
+                var element = sender as Frame;
+                element.BackgroundColor = Color.Accent;
+                sender = element;
+            });
             //Delete contact//
             DeleteContact = new Command<People>((sender) =>
             {                
@@ -45,6 +62,9 @@ namespace ContactAppSample.ViewModels
             {                
                 NavigatePage(sender);
             });
+
+
+
             conn = DependencyService.Get<SqliteInterface>().GetConnection();
             conn.CreateTable<People>();
             var details = (from x in conn.Table<People>() select x).ToList();         
@@ -56,14 +76,6 @@ namespace ContactAppSample.ViewModels
         private async void AddPeople()
         {            
             await PopupNavigation.PushAsync(new AddContactPage());
-        }
-        //Tap frame//
-        private void TapGesture(object sender)
-        {
-            frame.BackgroundColor = Color.White;
-            var element = sender as Frame;
-            element.BackgroundColor = Color.LightPink;
-            frame = element;
         }
         //Display actionsheet//
         async void DisplayMessage(People people) 
