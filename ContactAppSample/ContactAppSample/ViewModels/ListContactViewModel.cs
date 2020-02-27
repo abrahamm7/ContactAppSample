@@ -49,8 +49,9 @@ namespace ContactAppSample.ViewModels
             Addbtn = new Command(AddPeople);
 
             //TapFrame = new Command(TapGesture);
-            TapFrame = new Command(Tap);       
-                
+            TapFrame = new Command(Tap);
+
+            
            
             //Delete contact//
             DeleteContact = new Command<People>((sender) =>
@@ -127,5 +128,6 @@ namespace ContactAppSample.ViewModels
             }
         }
 
+       
     }
 }
