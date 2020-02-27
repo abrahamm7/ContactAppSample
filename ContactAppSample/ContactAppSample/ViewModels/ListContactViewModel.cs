@@ -22,7 +22,7 @@ namespace ContactAppSample.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public List<People> Peoples { get; set; } = new List<People>();
         public ICommand TapFrame { get; set; }
-        public ICommand Gesture { get; set; }
+        public ICommand Search { get; set; }
         public ICommand Addbtn { get; set; }
         public ICommand EditContact { get; set; }
         public ICommand DeleteContact { get; set; }            
@@ -117,6 +117,6 @@ namespace ContactAppSample.ViewModels
                     break;
             }
         }
-        
+
     }
 }
