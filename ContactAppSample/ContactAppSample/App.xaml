@@ -3,6 +3,7 @@
     x:Class="ContactAppSample.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -45,8 +46,7 @@
             <Style x:Key="CircleButton" TargetType="Button">
                 <Setter Property="BorderColor" Value="#FF9800" />
                 <Setter Property="BackgroundColor" Value="#FF9800" />
-                <Setter Property="FontSize" Value="20" />
-                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="30" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
             <Style x:Key="CancelButton" TargetType="Button">
@@ -55,6 +55,13 @@
                 <Setter Property="BorderColor" Value="#FF9800" />
                 <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="CornerRadius" Value="25" />
+            </Style>
+            <Style x:Key="CircleImage" TargetType="controls:CircleImage">
+                <Setter Property="FillColor" Value="Accent" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Visual" Value="Material" />
+                <Setter Property="WidthRequest" Value="40" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

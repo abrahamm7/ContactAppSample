@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ContactAppSample.Models
@@ -13,5 +14,6 @@ namespace ContactAppSample.Models
         public string Apellido { get; set; }
         public string Telefono { get; set; }
         public string Celular { get; set; }
+
     }
 }

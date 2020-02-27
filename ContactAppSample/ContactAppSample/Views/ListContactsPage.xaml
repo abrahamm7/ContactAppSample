@@ -26,8 +26,7 @@
                     IsRefreshing="{Binding State, Mode=OneWay}"
                     ItemsSource="{Binding Peoples}"
                     RefreshCommand="{Binding Refresh}"
-                    RefreshControlColor="Accent"
-                    SelectedItem="{Binding SelectPeople, Mode=TwoWay}">
+                    RefreshControlColor="Accent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -35,12 +34,7 @@
                                     <Frame x:Name="bigframe" Style="{StaticResource FrameOut}">
                                         <Frame Style="{StaticResource FrameIn}">
                                             <StackLayout Orientation="Horizontal">
-                                                <controls:CircleImage
-                                                    FillColor="Accent"
-                                                    HeightRequest="40"
-                                                    HorizontalOptions="Start"
-                                                    Visual="Material"
-                                                    WidthRequest="40" />
+                                                <controls:CircleImage Style="{StaticResource CircleImage}" />
                                                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
                                                     <Label Style="{StaticResource Cells}" Text="{Binding Nombre, Mode=TwoWay}" />
                                                     <Label
@@ -49,10 +43,10 @@
                                                         TextColor="Accent" />
                                                 </StackLayout>
                                             </StackLayout>
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.TapFrame, Source={x:Reference PeoplePage}}" CommandParameter="{Binding .}" />
+                                            </Frame.GestureRecognizers>
                                         </Frame>
-                                        <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding TapFrame}" CommandParameter="{x:Reference bigframe}" />
-                                        </Frame.GestureRecognizers>
                                     </Frame>
                                 </ViewCell.View>
                                 <ViewCell.ContextActions>

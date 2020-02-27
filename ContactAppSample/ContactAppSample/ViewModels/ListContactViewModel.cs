@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Plugin.Messaging;
 
 namespace ContactAppSample.ViewModels
 {
@@ -21,13 +22,15 @@ namespace ContactAppSample.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public List<People> Peoples { get; set; } = new List<People>();
         public ICommand TapFrame { get; set; }
+        public ICommand Gesture { get; set; }
         public ICommand Addbtn { get; set; }
         public ICommand EditContact { get; set; }
         public ICommand DeleteContact { get; set; }            
         public ICommand Refresh { get; set; }
+        public string StartLetter { get; set; }
         public bool State { get; set; } 
         public bool StateList { get; set; }
-        public People SelectPeople { get; set; }
+        public People People { get; set; } = new People();
 
         public SQLiteConnection conn;
 
@@ -43,14 +46,11 @@ namespace ContactAppSample.ViewModels
             });
             
             Addbtn = new Command(AddPeople);
+
             //TapFrame = new Command(TapGesture);
-            TapFrame = new Command<Frame>((sender) =>
-            {
-                sender.BackgroundColor = Color.White;
-                var element = sender as Frame;
-                element.BackgroundColor = Color.Accent;
-                sender = element;
-            });
+            TapFrame = new Command(Tap);       
+                
+           
             //Delete contact//
             DeleteContact = new Command<People>((sender) =>
             {                
@@ -69,6 +69,8 @@ namespace ContactAppSample.ViewModels
             conn.CreateTable<People>();
             var details = (from x in conn.Table<People>() select x).ToList();         
             this.Peoples = details;
+
+           
         }
 
         //Navigate to Popup//
@@ -77,6 +79,8 @@ namespace ContactAppSample.ViewModels
         {            
             await App.Current.MainPage.Navigation.PushAsync(new AddContactPage());
         }
+        
+        
         //Display actionsheet//
         async void DisplayMessage(People people) 
         {
@@ -91,11 +95,28 @@ namespace ContactAppSample.ViewModels
             }
             
         }
+       
+       
         //Navigate to edit contact page//
         async void NavigatePage(People people)
         {
             await App.Current.MainPage.Navigation.PushAsync(new EditContactPage(people));
         }
-         
+
+
+        private async void Tap(object sender)
+        {
+            People = sender as People;
+            var action = await App.Current.MainPage.DisplayActionSheet("Message", "Yes", "Cancel", $"Do you want call {People.Nombre} ?");
+            switch (action)
+            {
+                case "Yes":
+                    var phoneDialer = CrossMessaging.Current.PhoneDialer;
+                    if (phoneDialer.CanMakePhoneCall)
+                        phoneDialer.MakePhoneCall(People.Telefono);
+                    break;
+            }
+        }
+        
     }
 }
