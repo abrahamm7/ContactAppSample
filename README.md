@@ -1,7 +1,7 @@
 # ContactAppSample
-![Image description](ScreenShots/1.png)
-![Image description](ScreenShots/2.png)
-![Image description](ScreenShots/3.png)
-![Image description](ScreenShots/4.png)
-![Image description](ScreenShots/5.png)
-![Image description](ScreenShots/6.png)
+![alt-text](ScreenShots/1.png)
+![alt text](ScreenShots/2.png)
+![alt text](ScreenShots/3.png)
+![alt text](ScreenShots/4.png)
+![alt text](ScreenShots/5.png)
+![alt text](ScreenShots/6.png)
