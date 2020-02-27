@@ -36,9 +36,9 @@
                                         <Frame Style="{StaticResource FrameIn}">
                                             <StackLayout Orientation="Horizontal">
                                                 <controls:CircleImage
+                                                    FillColor="Accent"
                                                     HeightRequest="40"
                                                     HorizontalOptions="Start"
-                                                    Source="customer"
                                                     Visual="Material"
                                                     WidthRequest="40" />
                                                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">

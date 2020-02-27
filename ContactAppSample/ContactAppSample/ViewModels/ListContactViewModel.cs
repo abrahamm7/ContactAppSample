@@ -62,7 +62,7 @@ namespace ContactAppSample.ViewModels
             {                
                 NavigatePage(sender);
             });
-
+                    
 
 
             conn = DependencyService.Get<SqliteInterface>().GetConnection();
