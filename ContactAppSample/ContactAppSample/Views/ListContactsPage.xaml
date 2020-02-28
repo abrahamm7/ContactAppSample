@@ -11,7 +11,6 @@
     mc:Ignorable="d">
 
     <StackLayout>
-        <SearchBar Placeholder="Search Contact" SearchCommand="{Binding Search}" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
